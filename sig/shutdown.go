@@ -31,7 +31,7 @@ func ShutdownListener() <-chan any {
 	go func() {
 		rawSig := <-sigChan
 		sig := rawSig.String()
-		l.Log.Warn().Str("signal", sig).Msg("Caught signal, shutting down.")
+		l.Log.Info().Str("signal", sig).Msg("Caught signal, shutting down.")
 		close(shutdownChan)
 	}()
 
